@@ -4,7 +4,7 @@
 
     <groupId>de.luckydonald</groupId>
     <artifactId>utils</artifactId>
-    <version>-SNAPSHOT</version>
+    <version>2016.09.06-01-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>Luckydonald's utilities for java</name>
