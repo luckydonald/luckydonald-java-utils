@@ -3,8 +3,21 @@ package de.luckydonald.utils.lambdas;
 import java.util.concurrent.Callable;
 
 public class LambdaUtils {
+    /**
+     * Use methods thowing errors.
+     *
+     * <br /><br />
+     * <b>Example:</b><br />
+     * We have a stream of <code>obj</code> elements, and wanna call <code>obj.someCall()</code> basically,
+     * but we don't want to keep them elements if that method thrown an error.
+     * <pre>return stream.filter(obj -> uncheckCall(obj::someCall))</pre>
+     * @param callable
+     * @param <T>
+     * @return
+     * @link https://stackoverflow.com/a/19757456/3423324#java-8-lambda-streams-filter-by-method-with-exception
+     */
     public static <T> T uncheckCall(Callable<T> callable) {
-        // see http://stackoverflow.com/a/19757456/3423324
+        // see http://stackoverflow.com/a/19757456/3423324#java-8-lambda-streams-filter-by-method-with-exception
         try { return callable.call(); }
         catch (Exception e) { return sneakyThrow(e); }
     }
