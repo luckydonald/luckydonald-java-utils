@@ -5,6 +5,18 @@
     <groupId>de.luckydonald</groupId>
     <artifactId>utils</artifactId>
     <version>-SNAPSHOT</version>
+    <dependencies>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.7</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.7</version>
+        </dependency>
+    </dependencies>
     <packaging>jar</packaging>
 
     <name>Luckydonald's utilities for java</name>
@@ -27,8 +39,8 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.2</version>
                 <configuration> <!-- Compile java 7 compatible bytecode -->
-                    <source>1.7</source>
-                    <target>1.7</target>
+                    <source>8</source>
+                    <target>8</target>
                 </configuration>
             </plugin>
 
