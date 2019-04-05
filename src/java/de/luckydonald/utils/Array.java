@@ -1,6 +1,6 @@
 package de.luckydonald.utils;
 
-import de.luckydonald.utils.ObjectWithLogger;
+import de.luckydonald.utils.logger.ObjectWithLogger;
 import org.apache.commons.lang3.ArrayUtils;
 
 import java.util.Arrays;

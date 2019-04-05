@@ -1,6 +1,6 @@
 package de.luckydonald.utils;
 
-import de.luckydonald.utils.ObjectWithLogger;
+import de.luckydonald.utils.logger.ObjectWithLogger;
 
 /**
  * Created by  on

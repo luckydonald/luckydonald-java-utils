@@ -1,6 +1,6 @@
 package de.luckydonald.utils.interactions;
 
-import de.luckydonald.utils.ObjectWithLogger;
+import de.luckydonald.utils.logger.ObjectWithLogger;
 
 import java.io.InputStream;
 import java.io.OutputStream;
