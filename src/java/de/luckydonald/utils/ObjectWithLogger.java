@@ -1,45 +1,51 @@
 package de.luckydonald.utils;
 
-import java.util.logging.ConsoleHandler;
 import java.util.logging.Handler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- * Created by luckydonald on 12.02.16.
+ * @deprecated Use <code>de.luckydonald.utils.logger.ObjectWithLogger</code> instead.
+ * @see de.luckydonald.utils.logger.ObjectWithLogger
  */
-public class ObjectWithLogger {
-    private Logger logger = null;
-    private static Logger staticLogger = null;
+@Deprecated
+class ObjectWithLogger extends de.luckydonald.utils.logger.ObjectWithLogger {
+    private static void logDeprecationNotice(Logger l) {
+        l.warning("Using `de.luckydonald.utils.ObjectWithLogger` is deprecated, please use `de.luckydonald.utils.logger.ObjectWithLogger` instead. That's a '.logger' more.");
+    }
+
+    /**
+     * @deprecated Use <code>de.luckydonald.utils.logger.ObjectWithLogger</code> instead.
+     * @see de.luckydonald.utils.logger.ObjectWithLogger  Use this instead.
+     */
+    @Override
+    @Deprecated
     public Logger getLogger() {
-        if (logger == null) {
-            logger =  Logger.getLogger(this.getClass().getCanonicalName());
-        }
-        logger.setLevel(Level.FINE);
-        return logger;
+        Logger l = super.getLogger();
+        logDeprecationNotice(l);
+        return l;
     }
+
+    /**
+     * @deprecated Use <code>de.luckydonald.utils.logger.ObjectWithLogger</code> instead.
+     * @see de.luckydonald.utils.logger.ObjectWithLogger  Use this instead.
+     */
+    @Deprecated
     public static Logger getStaticLogger() {
-        if (staticLogger == null) {
-            staticLogger = Logger.getLogger(new Throwable().getStackTrace()[1].getClassName());
-        }
-        return staticLogger;
+        Logger l = de.luckydonald.utils.logger.ObjectWithLogger.getStaticLogger();
+        logDeprecationNotice(l);
+        return l;
     }
 
-    public Handler addLogConsoleHandler() {
-        return addLogConsoleHandler(null);
-    }
+    /**
+     * @deprecated Use <code>de.luckydonald.utils.logger.ObjectWithLogger</code> instead.
+     * @see de.luckydonald.utils.logger.ObjectWithLogger  Use this instead.
+     */
+    @Override
+    @Deprecated
     public Handler addLogConsoleHandler(Level l) {
-        if (l == null) {
-            return addLogConsoleHandler(Level.ALL);
-        }
-        // Create and set handler
-        Handler systemOut = new ConsoleHandler();
-        systemOut.setLevel( l );
-        getLogger().addHandler( systemOut );
-        getLogger().setLevel( l );
-
-        // Prevent logs from processed by default Console handler.
-        getLogger().setUseParentHandlers( false ); // Solution 1
-        return systemOut;
+        Logger log = de.luckydonald.utils.logger.ObjectWithLogger.getStaticLogger();
+        logDeprecationNotice(log);
+        return super.addLogConsoleHandler(l);
     }
 }
