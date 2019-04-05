@@ -32,6 +32,7 @@
     </dependencies>-->
 
     <build>
+        <sourceDirectory>src/java</sourceDirectory>
         <plugins>
 
             <plugin>
@@ -58,6 +59,7 @@
             </plugin>
 
             <plugin>
+                <!-- https://blog.joda.org/2014/02/turning-off-doclint-in-jdk-8-javadoc.html -->
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
                 <executions>
@@ -68,6 +70,9 @@
                         </goals>
                     </execution>
                 </executions>
+                <configuration>
+                    <doclint>none</doclint>
+                </configuration>
             </plugin>
         </plugins>
     </build>
