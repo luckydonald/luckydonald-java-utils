@@ -11,7 +11,8 @@ import java.io.IOException;
  * Created by luckydonald on 05.04.19.
  */
 public class OpenFile extends ObjectWithLogger {
-    private static boolean openFile(String fileName) {
+    @SuppressWarnings("unused")
+    public static boolean openFile(String fileName) {
         // https://stackoverflow.com/a/550336/3423324#how-to-open-a-file-with-the-default-associated-program
         // https://stackoverflow.com/a/526072/3423324#how-to-edit-a-file-with-system-preferred-editor
         File file = new File(fileName);
@@ -33,6 +34,7 @@ public class OpenFile extends ObjectWithLogger {
 
         return true;
     }
+    @SuppressWarnings("unused")
     public static boolean editFile(String fileName) {
         // https://stackoverflow.com/a/526072/3423324#how-to-edit-a-file-with-system-preferred-editor
         // https://stackoverflow.com/a/550336/3423324#how-to-open-a-file-with-the-default-associated-program
