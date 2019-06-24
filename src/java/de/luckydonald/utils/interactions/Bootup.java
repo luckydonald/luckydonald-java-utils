@@ -108,10 +108,10 @@ public class Bootup {
         return centerText(text, space, ' ', true);
     }
     public static String centerText(String text, int space, char fill) {
-        return centerText(text, space, ' ', true, true);
+        return centerText(text, space, fill, true, true);
     }
     public static String centerText(String text, int space, char fill, boolean replaceSpaceWithFill) {
-        return centerText(text, space, ' ', replaceSpaceWithFill, true);
+        return centerText(text, space, fill, replaceSpaceWithFill, true);
     }
 
     /**
