@@ -11,8 +11,14 @@ public class Bootup {
         return bootTextColored(line1, line2, null);
     }
 
-    public static String prepareString() {
-        return "";
+    public static void boot() {
+        boot("JAVA", "FOR DUMMIES");
+    }
+    public static void boot(String line1, String line2) {
+        boot(line1, line2, null);
+    }
+    public static void boot(String line1, String line2, String epilog) {
+        System.out.println(bootTextColored(line1, line2, epilog));
     }
 
     public static String bootTextColored(String line1, String line2, String epilog) {
