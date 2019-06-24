@@ -8,10 +8,6 @@ import static org.junit.Assert.*;
 
 class BootupTest {
     @Test
-    void prepareString() {
-    }
-
-    @Test
     void centerText_equal() {
         String result = Bootup.centerText("A", 5);
         String expected = "  A  ";
