@@ -10,7 +10,7 @@ import java.util.logging.Logger;
  *
  * Brings you <code>this.getStaticLogger</code> and <code>Class.getStaticLogger</code>.
  */
-public class ObjectWithLogger {
+public class ObjectWithLogger implements LoggerTrait {
     private Logger logger = null;
     private static Logger staticLogger = null;
     public Logger getLogger() {
