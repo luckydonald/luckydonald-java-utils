@@ -16,6 +16,8 @@ public class Bootup {
     }
 
     public static String bootTextColored(String line1, String line2, String epilog) {
+        line1 = centerText(line1, 12, ' ', true, false);
+        line2 = centerText(line2, 10, '_', true, true);
         return "\n" +
                 "\u001B[0;35m   _ \u001B[0;34m   _____   \u001B[0;35m      _\n" +
                 "\u001B[0;35m   \\`,\u001B[0;34m\"\"   \u001B[0;35m,'\u001B[0;31m7\"r\u001B[0;34m-..__\u001B[0;35m/ \\\n" +
@@ -59,7 +61,8 @@ public class Bootup {
         return bootTextPlain(line1, line2, null);
     }
     public static String bootTextPlain(String line1, String line2, String epilog) {
-
+        line1 = centerText(line1, 12, ' ', true, false);
+        line2 = centerText(line2, 10, '_', true, true);
         return "\n" +
                 "   _    _____         _\n" +
                 "   \\`,\"\"   ,'7\"r-..__/ \\\n" +
@@ -99,15 +102,18 @@ public class Bootup {
         return centerText(text, space, ' ', true);
     }
     public static String centerText(String text, int space, char fill) {
-        return centerText(text, space, fill, true);
+        return centerText(text, space, ' ', true, true);
+    }
+    public static String centerText(String text, int space, char fill, boolean replaceSpaceWithFill) {
+        return centerText(text, space, ' ', replaceSpaceWithFill, true);
     }
 
     /**
      * Center align text, fill left and right with with `fill`,
      * optionally replace spaces with `fill` as well (default: `true`).
      *
-     * If the text isn't center-able as it is one character too long, align it to the right,
-     * fill one more `fill` to the left.
+     * If the text isn't center-able as it is one character too long, and if `alignLeft` is `true`,
+     * align it to the left, fill one more character of `fill` to the right.
      *
      * If the text is to long for `length`, it will raise an `IllegalArgumentException`.
      *
@@ -115,11 +121,13 @@ public class Bootup {
      * @param length  The space we want to pad.
      * @param fill  Character to pad with.
      * @param replaceSpaceWithFill  If we should replace the whitespace `' '` with the fill as well.
+     * @param alignLeft  If we should align it to the left in case of an uneven amount of `fill` to be added.
+     *
      *
      * @throws IllegalArgumentException Your text is longer the set length.
      * @return The padded string.
      */
-    public static String centerText(String text, int length, char fill, boolean replaceSpaceWithFill) {
+    public static String centerText(String text, int length, char fill, boolean replaceSpaceWithFill, boolean alignLeft) {
         if (text.length() > length) {
             throw new IllegalArgumentException("Text length > " + length + ".");
         }
@@ -135,12 +143,23 @@ public class Bootup {
         for (int i = 0; i < fillMe / 2; i++) {
             sb.append(fill);
         }
-        return (fillMe % 2 == 1 ? fill : "") + sb.toString() + text + sb.toString();
+        return (!alignLeft && fillMe % 2 == 1 ? fill : "") + sb.toString() + text + sb.toString() + (alignLeft && fillMe % 2 == 1 ? fill : "");
     }
 
-    public static void main(String[] args) {
-        System.out.println(bootTextColored("  YOUR  MOM ", "__________", null));
-        System.out.println(bootTextPlain("  YOUR  MOM ", "__________", null));
+    public static void main(String[] argv) {
+        String line0 = "WELL,";
+        String line1 = "YOUR MOM";
+        String lineZ = "You found this example. Great.";
+        if (argv.length >= 2) {
+            line0 = argv[0];
+            line1 = argv[1];
+            lineZ = null;
+        }
+        if (argv.length >= 3) {
+            lineZ = argv[2];
+        }
+        System.out.println(bootTextPlain(line0, line1, lineZ));
+        System.out.println(bootTextColored(line0, line1, lineZ));
     }
 }
 
