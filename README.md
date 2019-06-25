@@ -22,7 +22,7 @@ Add to your `Pom.xml`:
         <dependency><!-- https://github.com/luckydonald/luckydonald-java-utils -->
             <groupId>com.github.luckydonald</groupId>
             <artifactId>luckydonald-java-utils</artifactId>
-            <version>v0.6</version><!-- either a git tag (like `v0.1`), a commit hash (like `5485b0aa8d`; 10 characters), or a branch name (`master-SNAPSHOT`). -->
+            <version>v0.7</version><!-- either a git tag (like `v0.1`), a commit hash (like `5485b0aa8d`; 10 characters), or a branch name (`master-SNAPSHOT`). -->
         </dependency>		
     </dependencies>
 ```
